@@ -1,0 +1,50 @@
+.nearby{
+    padding: 20px;
+    text-align: center;
+}
+
+.tableDiv{
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 15;
+}
+
+.mtb-3{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.table{
+    width: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-collapse: collapse;
+}
+
+.table th, .table td{
+    text-align: center;
+    padding: 10px;
+}
+
+.table th{
+    background-color: rgb(225, 225, 225);
+}
+
+.table td{
+    border-color: rgb(225, 225, 225);
+    border-style: solid;
+}
+
+@media only screen and (max-width: 700px){
+    .nearby{
+        font-size: small;
+    }
+
+    .tableDiv{
+        padding: 0;
+        margin: 1% 0;
+        width: 100%;
+        text-align: center;
+        font-size: xx-small;
+    }
+
+}

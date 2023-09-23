@@ -1,0 +1,89 @@
+.App {
+  text-align: center;
+}
+
+.header{
+  font-size: 40px;
+  padding: 0;
+  margin: 15px;
+}
+
+.Nav{
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.navList{
+  text-decoration: none;
+  color: rgb(0, 140, 255);
+}
+
+.copyright{
+  display: table;
+  margin: 0 auto;
+  font-size: 13px;
+  padding: 70px 0 0 0;
+}
+
+.lang{
+  display: flex;
+  gap: 5px;
+  text-align: end;
+}
+
+.lngButton{
+  width: 40px;
+  height: 20px;
+  text-align: center;
+  background-color: white;
+  transition: 0.5s ease-in-out;
+  font-size: 12px;
+  border-width: 1px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.lngButton:hover{
+  color: white;
+  background-color: rgb(225, 225, 225);
+  border-color: white;
+  transition: 0.5s ease-in-out; 
+}
+
+@media only screen and (max-width:700px) {
+  .App{
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    
+  }
+
+  .header{
+    font-size: large;
+  }
+
+  .Nav{
+    display: flex;
+    width: 30%;
+    margin: 0 auto;
+    gap: 15%;
+    text-align: center;
+  }
+
+  .navList{
+    width: 50%;
+    font-size: 60%;
+  }
+
+  .lngButton{
+    width: 40%;
+    font-size: 70%;
+    text-align: start;
+  }
+}

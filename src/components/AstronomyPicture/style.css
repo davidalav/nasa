@@ -1,0 +1,85 @@
+.astronomy{
+   text-align: center;
+   padding: 20px 0 40px 0;
+}
+.date{
+
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+}
+
+.dateInput{
+    text-align: center;
+    font-size: 20px;
+    height: 35px;
+    width: 200px;
+    border-radius: 6px;
+    border-style: solid;
+    border-color: rgb(1, 128, 255);
+    border-width: 1px;
+    cursor: pointer;
+}
+
+.dateButton{
+    height: 35px;
+    width: 50px;
+    border-radius: 6px;
+    border-style: solid;
+    border-color: grey;
+    border-width: 1px;
+    background-color: white;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.dateButton:hover{
+    background-color: rgb(225, 225, 225);
+    color: white;
+    border-color: white;
+    transition: 0.5s ease-in-out;
+}
+
+.resp{
+    padding: 30px;
+    text-align: center;
+    justify-content: center;
+    display: table;
+}
+
+.respImg{
+    display: inline;
+    padding: 20px 0 0 0;
+}
+
+.respText{
+    font-style: oblique;
+}
+
+@media only screen and (max-width: 700px) {
+    .date{
+        gap: 1%;
+    }
+   .dateInput{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+   }
+   .resp{
+        display: inline;
+        align-items: center;
+        width: 100%;
+   }
+
+   .respText{
+    display: flex;
+    text-align: center;
+   }
+
+   .respImg{
+    display: flex;
+    padding: 0;
+    width: 100%;
+   }
+
+}
