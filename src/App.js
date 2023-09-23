@@ -1,12 +1,12 @@
 import { Fragment } from 'react';
 import { Routes, Route, Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next';
-import './App.css';
+import { Button } from 'antd';
 import Home from './components/Home';
 import Nearby from './components/Nearby';
 import AstronomyPicture from './components/AstronomyPicture';
 import NewPlanet from './components/NewPlanet';
-import i18next, { changeLanguage } from 'i18next';
+import './App.css';
 
 
 function App() {
@@ -14,9 +14,6 @@ function App() {
   const changeLanguage = (language) => {
     i18next.changeLanguage(language)
   }
-  // const changeLanguage = (language) => {
-  //   i18n.changeLanguage(language)
-  // }
   return (
     <Fragment>
       <div className="App">
@@ -28,15 +25,15 @@ function App() {
        <Link className='navList' to='/astronomy'>{t("astronomy")}</Link>|
        <Link className='navList' to='/newplanet'>{t("submit")}</Link>
         <div className='lang'>
-        <button className='lngButton' onClick={() => changeLanguage("en")}>EN</button>
-        <button className='lngButton' onClick={() => changeLanguage("am")}>ՀՅ</button>
+        <Button type='text' onClick={() => changeLanguage("en")}>EN</Button>
+        <Button type='text' onClick={() => changeLanguage("am")}>ՀՅ</Button>
         </div>
       </header>
       <Routes>
-      <Route path='/home' element={<Home/>} />
-      <Route path='/asteroids' element={<Nearby/>} />
-      <Route path='/astronomy' element={<AstronomyPicture/>} />
-      <Route path='/newplanet' element={<NewPlanet/>} />
+        <Route path='/home' element={<Home/>} />
+        <Route path='/asteroids' element={<Nearby t={t} i18next={i18next} />} />
+        <Route path='/astronomy' element={<AstronomyPicture t={t}  i18next={i18next}/>} />
+        <Route path='/newplanet' element={<NewPlanet t={t}  i18next={i18next}/>} />
       </Routes>
       <footer className='copyright'>©2023</footer>
     </Fragment>

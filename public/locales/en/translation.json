@@ -3,5 +3,19 @@
     "home": "HOME",
     "nearby": "NEARBY ASTEROIDS",
     "astronomy": "ASTRONOMY PICTURE OF THE DAY",
-    "submit": "SUBMIT NEW PLANET"
+    "submit": "SUBMIT NEW PLANET",
+    "searchAsteroids": "Search for Asteroids based on their closest approach date to Earth",
+    "title": "Title",
+    "distance": "Distance (km)",
+    "magnitude": "Absolute Magnitude",
+    "hazardous": "Is potentially hazardous",
+    "diameter": "Diameter (meters)",
+    "astronomyPicture": "Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.",
+    "newplanet": "If you found new planet you can add it to our directory",
+    "planetName": "Planet Name",
+    "galaxyName": "Galaxy Name",
+    "diametr": "Diametr",
+    "distance": "Distance (mln km)",
+    "yourName": "Your Name",
+    "email": "Email"
 }

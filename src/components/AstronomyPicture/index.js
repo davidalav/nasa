@@ -1,14 +1,15 @@
 import React, { Fragment, useState } from 'react';
 import ReactDatePicker from 'react-datepicker';
-import moment from 'moment';
-import i18next from 'i18next';
-import 'react-datepicker/dist/react-datepicker.module.css'
 import { apiClient } from '../../services/client';
-import './style.css';
 import { useTranslation } from 'react-i18next';
+import { Button, DatePicker } from 'antd';
+import moment from 'moment';
+import 'react-datepicker/dist/react-datepicker.module.css'
+import i18next from 'i18next';
+import './style.css';
 
-const AstronomyPicture = () => {
-  const {t} = useTranslation()
+const AstronomyPicture = ({t, i18next}) => {
+  [t, i18next] = useTranslation()
   const [data, setData] = useState([])
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -32,22 +33,20 @@ const AstronomyPicture = () => {
   return (
     <Fragment>
       <div className="astronomy" >
-        <span>{t('Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.')}</span>
+        <span>{t("astronomyPicture")}</span>
       </div>
       <div className='date'>
-        <ReactDatePicker
-          placeholderText='to the present time'
-          className='dateInput'
+        <DatePicker
           selected={selectedDate}
-          onChange={(date) => setSelectedDate(date)}
-          dateFormat='yyyy-MM-dd'
+          onChange={(date) => setSelectedDate(date['$d'])}
         />
-        <button
+        <Button
+          type='submit'
           className='dateButton'
           onClick={onClick}
         >
           GO
-        </button>
+        </Button>
       </div>
       <div className='resp'>
         <span className='respText'>{data.explanation}</span>

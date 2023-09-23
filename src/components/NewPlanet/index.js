@@ -1,26 +1,31 @@
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react';
+import { Button, Input, Select, InputNumber } from 'antd';
 import './style.css'
+import { useTranslation } from 'react-i18next';
 
-const NewPlanet = () => {
-
-    const galaxy = ['Galaxy Name','Milky Way', 'Massier 83', 'Black Eye Galaxy', 'Pinwheel', 'Canis Major Dwarf', 'Somewhere else...'];
+const NewPlanet = ({t, i18next}) => {
+    [t, i18next] = useTranslation()
+    const galaxy = ['Milky Way', 'Massier 83', 'Black Eye Galaxy', 'Pinwheel', 'Canis Major Dwarf', 'Somewhere else...'];
     
     return(
         <Fragment>
             <div className='submit'>
-                <span>If you found new planet you can add it to our directory (Reactive forms demo)</span>
+                <span>{t('newplanet')}</span>
             </div>
             <div className='inputs'>
-                <input className='input' type='text' placeholder='Planet Name'></input>
-                <select className='select'>
+                <Input className='input' type='text' placeholder={t("planetName")}></Input>
+                <Select 
+                        defaultValue={t("galaxyName")}
+                        className='select'
+                >
                     {galaxy.map((item, index) => <option value={index}>{item}</option>)}
-                </select>
-                <input className='input' type='number' placeholder='Diametr (km)'></input>
-                <input className='input' type='number' placeholder='Distance (mln km)' ></input>
-                <input className='input' type='text' placeholder='Your Name' ></input>
-                <input className='input' type='text' placeholder='Email' ></input>
+                </Select>
+                <InputNumber className='input' placeholder={t("diametr")}></InputNumber>
+                <InputNumber className='input' placeholder={t("distance")} ></InputNumber>
+                <Input className='input' type='text' placeholder={t("yourName")}></Input>
+                <Input className='input' type='text' placeholder={t("email")}></Input>
             </div>
-            <button className='button'>Submit</button>
+            <Button type='submit' className='button'>SUBMIT</Button>
         </Fragment>
     )
 }

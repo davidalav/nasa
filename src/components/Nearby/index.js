@@ -1,11 +1,14 @@
 import { Fragment, useState } from 'react';
-import ReactDatePicker from 'react-datepicker';
+import { processNerabyResponse } from '../../utils';
+import { apiClient } from '../../services/client';
+import { Button, DatePicker } from 'antd';
 import moment from 'moment/moment';
 import 'react-datepicker/dist/react-datepicker.module.css'
 import './style.css';
-import { apiClient } from '../../services/client';
-import { processNerabyResponse } from '../../utils';
-const Nearby = () => {
+import { useTranslation } from 'react-i18next';
+
+const Nearby = ({t, i18next}) => {
+    [t, i18next] = useTranslation()
     const [data, setData] = useState([]);
     const [selectedDateMin, setSelectedDateMin] = useState(null);
     const [selectedDateMax, setSelectedDateMax] = useState(null);
@@ -35,36 +38,31 @@ const Nearby = () => {
             setIsLoading(false);
         }
     }
-// console.log(data)
     return (
         <Fragment>
             <div className='nearby'>
-                <span>Search for Asteroids based on their closest approach date to Earth</span>
+                <span>{t('searchAsteroids')}</span>
             </div>
             <div className='date'>
-                <ReactDatePicker placeholderText='start date'
-                    className='dateInput'
+                <DatePicker type='date' placeholderText='start date'
                     selected={selectedDateMin}
-                    onChange={(date) => setSelectedDateMin(date)}
-                    dateFormat="dd/MM/yyyy"
+                    onChange={(date) => setSelectedDateMin(date['$d'])}
                 />
-                <ReactDatePicker placeholderText='end date'
-                    className='dateInput'
+                <DatePicker placeholderText='end date'
                     selected={selectedDateMax}
-                    onChange={(date) => setSelectedDateMax(date)}
-                    dateFormat="dd/MM/yyyy"
+                    onChange={(date) => setSelectedDateMax(date['$d'])}
                 />
-                <button className='dateButton' onClick={onClick}>GO</button>
+                <Button type='submit' className='dateButton' onClick={onClick}>GO</Button>
             </div>
             {data && <div className='tableDiv mtb-3'>
                 <table  className='table'>
                     <thead>
                         <tr>
-                            <th>Title</th>
-                            <th>Distance (km)</th>
-                            <th>Absolute Magnitude</th>
-                            <th>Is potentially hazardous</th>
-                            <th>Diameter (meters)</th>
+                            <th>{t("title")}</th>
+                            <th>{t("distance")}</th>
+                            <th>{t("magnitude")}</th>
+                            <th>{t("hazardous")}</th>
+                            <th>{t("diameter")}</th>
                         </tr>
                     </thead>
                     {data.map(item => <tbody className='body'><tr>
