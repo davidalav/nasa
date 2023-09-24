@@ -28,6 +28,10 @@
     padding-bottom: 10px;
 }
 
+.selectInput{
+    width: 500px;
+}
+
 .button{
     display: table;
     margin: 0 auto;

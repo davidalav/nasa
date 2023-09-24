@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import ReactDatePicker from 'react-datepicker';
 import { apiClient } from '../../services/client';
 import { useTranslation } from 'react-i18next';
-import { Button, DatePicker } from 'antd';
+import { Button, DatePicker, Form } from 'antd';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.module.css'
 import i18next from 'i18next';
@@ -35,19 +35,25 @@ const AstronomyPicture = ({t, i18next}) => {
       <div className="astronomy" >
         <span>{t("astronomyPicture")}</span>
       </div>
-      <div className='date'>
-        <DatePicker
-          selected={selectedDate}
-          onChange={(date) => setSelectedDate(date['$d'])}
-        />
+      <Form className='date'>
+        <Form.Item
+          name="pictureDate"
+          rules={[{ required: true, message: 'Please enter Date!' }]}
+        >
+          <DatePicker
+            selected={selectedDate}
+            onChange={(date) => setSelectedDate(date['$d'])}
+          />
+        </Form.Item>
         <Button
+          htmlType='submit'
           type='submit'
           className='dateButton'
           onClick={onClick}
         >
-          GO
+           GO
         </Button>
-      </div>
+      </Form>
       <div className='resp'>
         <span className='respText'>{data.explanation}</span>
         <br/>

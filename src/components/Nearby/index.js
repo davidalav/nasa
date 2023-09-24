@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react';
 import { processNerabyResponse } from '../../utils';
 import { apiClient } from '../../services/client';
-import { Button, DatePicker } from 'antd';
+import { Button, DatePicker, Form } from 'antd';
 import moment from 'moment/moment';
 import 'react-datepicker/dist/react-datepicker.module.css'
 import './style.css';
@@ -43,17 +43,34 @@ const Nearby = ({t, i18next}) => {
             <div className='nearby'>
                 <span>{t('searchAsteroids')}</span>
             </div>
-            <div className='date'>
-                <DatePicker type='date' placeholderText='start date'
-                    selected={selectedDateMin}
-                    onChange={(date) => setSelectedDateMin(date['$d'])}
-                />
-                <DatePicker placeholderText='end date'
-                    selected={selectedDateMax}
-                    onChange={(date) => setSelectedDateMax(date['$d'])}
-                />
-                <Button type='submit' className='dateButton' onClick={onClick}>GO</Button>
-            </div>
+            <Form className='date'>
+                <Form.Item 
+                    name="startDate"
+                    rules={[{ required: true, message: 'Please enter Start Date!' }]}
+                >
+                    <DatePicker type='date' placeholderText='start date'
+                        selected={selectedDateMin}
+                        onChange={(date) => setSelectedDateMin(date['$d'])}
+                    />
+                </Form.Item>
+                <Form.Item
+                    name="endDate"
+                    rules={[{ required: true, message: 'Please enter End Date!' }]}
+                >
+                    <DatePicker placeholderText='end date'
+                        selected={selectedDateMax}
+                        onChange={(date) => setSelectedDateMax(date['$d'])}
+                    />
+                </Form.Item>
+                <Button 
+                    htmlType='submit'
+                    type='submit' 
+                    className='dateButton' 
+                    onClick={onClick}
+                >
+                GO
+                </Button>
+            </Form>
             {data && <div className='tableDiv mtb-3'>
                 <table  className='table'>
                     <thead>

@@ -15,7 +15,7 @@
     "planetName": "Planet Name",
     "galaxyName": "Galaxy Name",
     "diametr": "Diametr",
-    "distance": "Distance (mln km)",
+    "newDistance": "Distance (mln km)",
     "yourName": "Your Name",
     "email": "Email"
 }
